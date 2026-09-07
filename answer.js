@@ -40,8 +40,7 @@ function getDayType(day) {
 
 // console.log(getDayType("Friday"));
 // console.log(getDayType("friday"));
-// console.log(getDayType("MONDAY"));
-// console.log(getDayType("Bandarban"));
+
 
 //Question No. 3
 
@@ -63,10 +62,8 @@ function validateUsername(username) {
 // console.log(validateUsername("rahim123"));
 // console.log(validateUsername("ab"));
 // console.log(validateUsername("a b"));
-// console.log(validateUsername("abcd"));
+
 // console.log(validateUsername("rahim islam"));
-// console.log(validateUsername("superadmin99"));
-// console.log(validateUsername("Admin_Rahim"));
 
 //Question No. 4
 
@@ -85,13 +82,36 @@ function getCngFare(distance, isNight = false, waitingMinutes = 0) {
 
   return fare;
 }
-console.log(getCngFare(2));
-console.log(getCngFare(1));
-console.log(getCngFare(5));
-console.log(getCngFare(10));
-console.log(getCngFare(5, false, 10));
-console.log(getCngFare(5, true));
-console.log(getCngFare(5, true, 10));
+// console.log(getCngFare(2));
+// console.log(getCngFare(5, false, 10));
+// console.log(getCngFare(5, true));
 
 
 //Question No. 5
+const getChaseVerdict = (target, scored, ballsLeft) => {
+  const runsNeeded = target - scored;
+
+  if (runsNeeded <= 0) {
+    return "Won";
+  }
+
+  if (ballsLeft <= 0) {
+    return "Lost";
+  }
+
+  const requiredRate = (runsNeeded / ballsLeft) * 6;
+
+  let verdict;
+
+  if (requiredRate <= 6) {
+    verdict = "Comfortable";
+  } else if (requiredRate <= 12) {
+    verdict = "Tough";
+  } else {
+    verdict = "Almost Impossible";
+  }
+
+  return `Need ${runsNeeded} runs in ${ballsLeft} balls | ${verdict}`;
+};
+// console.log(getChaseVerdict(200, 200, 12));
+// console.log(getChaseVerdict(200, 190, 0));
